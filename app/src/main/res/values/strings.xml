@@ -4,4 +4,10 @@
     <string name="Bonjour">Boujour</string>
     <string name="Cycle_de_vie">Cycle de vie</string>
     <string name="Sauvegarde">Sauvegarde</string>
+    <string name="Connexion">Connexion</string>
+    <string name="ID">identifiant</string>
+    <string name="Password">Mot de passe</string>
+    <string name="valid">Valider</string>
+    <string name="Permissions">Permissions</string>
+    <string name="Web_services">Web services</string>
 </resources>

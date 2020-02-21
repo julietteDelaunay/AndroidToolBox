@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/Permissions"
         app:layout_constraintEnd_toEndOf="@+id/imgPermission"
         app:layout_constraintStart_toStartOf="@+id/imgPermission"
         app:layout_constraintTop_toBottomOf="@+id/imgPermission" />
@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/Web_services"
         app:layout_constraintEnd_toEndOf="@+id/imgWebServices"
         app:layout_constraintStart_toStartOf="@+id/imgWebServices"
         app:layout_constraintTop_toBottomOf="@+id/imgWebServices" />
