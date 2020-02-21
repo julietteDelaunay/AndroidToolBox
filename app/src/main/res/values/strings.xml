@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AndroidToolBox</string>
     <string name="login_title">Bonjour</string>
-    <string name="Bonjour">Boujour</string>
+    <string name="Bonjour">Bonjour</string>
     <string name="Cycle_de_vie">Cycle de vie</string>
     <string name="Sauvegarde">Sauvegarde</string>
     <string name="Connexion">Connexion</string>
