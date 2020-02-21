@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="242dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/isenlogo" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="84dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/Bonjour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageButton
+        android:id="@+id/imgCycleDeVie"
+        android:layout_width="97dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="220dp"
+        android:background="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@android:drawable/sym_action_chat" />
+
+    <ImageButton
+        android:id="@+id/imgPermission"
+        android:layout_width="97dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="428dp"
+        android:background="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@android:drawable/ic_menu_call" />
+
+    <ImageButton
+        android:id="@+id/imgSauvegarde"
+        android:layout_width="97dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="220dp"
+        android:background="#F44336"
+        android:tint="#FAF8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <ImageButton
+        android:id="@+id/imgWebServices"
+        android:layout_width="97dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="428dp"
+        android:background="#F44336"
+        android:tint="#FAF8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@android:drawable/stat_sys_download_done" />
+
+    <TextView
+        android:id="@+id/textCycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Cycle_de_vie"
+        app:layout_constraintEnd_toEndOf="@+id/imgCycleDeVie"
+        app:layout_constraintStart_toStartOf="@+id/imgCycleDeVie"
+        app:layout_constraintTop_toBottomOf="@+id/imgCycleDeVie" />
+
+    <TextView
+        android:id="@+id/textSauv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Sauvegarde"
+        app:layout_constraintEnd_toEndOf="@+id/imgSauvegarde"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="@+id/imgSauvegarde"
+        app:layout_constraintTop_toBottomOf="@+id/imgSauvegarde" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/imgPermission"
+        app:layout_constraintStart_toStartOf="@+id/imgPermission"
+        app:layout_constraintTop_toBottomOf="@+id/imgPermission" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/imgWebServices"
+        app:layout_constraintStart_toStartOf="@+id/imgWebServices"
+        app:layout_constraintTop_toBottomOf="@+id/imgWebServices" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
