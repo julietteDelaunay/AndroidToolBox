@@ -1,6 +1,8 @@
 package fr.isen.delaunay.androidtoolbox
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,9 +10,11 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class HomeActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //creation pref et editor
+        val sharedPref: SharedPreferences = getSharedPreferences("PREF_NAME", Context.MODE_PRIVATE)
+        val editor:SharedPreferences.Editor= sharedPref.edit()
         setContentView(R.layout.activity_home)
 
             //si le bouton image ( cycle de vie) est activée
@@ -18,6 +22,16 @@ class HomeActivity : AppCompatActivity() {
                 //pour demarer l'activitée CycleLife
                 val intent = Intent(this, CycleLife::class.java)
                 startActivity(intent)
+
+        }
+        buttonSTOP.setOnClickListener(){
+            //vide editor
+            editor.clear()
+            //applique
+            editor.apply()
+            //reviens a login activity
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
 
         }
     }
