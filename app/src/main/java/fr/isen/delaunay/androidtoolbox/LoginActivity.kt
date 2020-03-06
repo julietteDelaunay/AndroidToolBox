@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("ID", idetifiantUser)
                         editor.putString("PSW", passwordUser)
                         editor.apply()
-                        val homeIntent = Intent(this, HomeActivity::class.java)
+                        val homeIntent = Intent(this, FormActivity::class.java)
                         startActivity(homeIntent)
                         finish()
 
