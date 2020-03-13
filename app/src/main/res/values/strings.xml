@@ -22,4 +22,5 @@
     <string name="titre_permission" >acces aux information android </string>
     <string name="camera_image" />
     <string name="permission_location" >Contacts de Juliette Delaunay </string>
+    <string name="date">../../....</string>
 </resources>

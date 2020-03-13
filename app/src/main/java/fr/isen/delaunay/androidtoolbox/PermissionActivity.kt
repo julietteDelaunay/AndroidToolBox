@@ -1,19 +1,26 @@
 package fr.isen.delaunay.androidtoolbox
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.ContentResolver
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_permission.*
 
 class PermissionActivity : AppCompatActivity()
 {
+    val contact = mutableListOf<String>()
   override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_permission)
@@ -21,9 +28,9 @@ class PermissionActivity : AppCompatActivity()
       cameraIV.setOnClickListener {
 
           showPictureDialog()
+
       }
-      contactRecycler.adapter = ContactAdapter(listOf( "Marion", "Vic", "Juliette"))  //optimiser au max l'affichage des cell contactRecycler: id recycleView
-      contactRecycler.layoutManager = LinearLayoutManager(this)
+loadContacts()
    }
 
 
@@ -59,6 +66,7 @@ class PermissionActivity : AppCompatActivity()
         pictureDialog.show()
     }
 
+
     companion object { //permet de faire des static
         //image pick code
         private const val IMAGE_PICK_CODE = 1000;
@@ -74,5 +82,41 @@ class PermissionActivity : AppCompatActivity()
             var bmp = data?.extras?.get("data") as Bitmap
             cameraIV.setImageBitmap(bmp)
         }
+    }
+
+
+    private fun loadContacts() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(
+                Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS),
+                1)
+            //callback onRequestPermissionsResult
+        } else {
+            getContacts()
+            contactRecycler.adapter = ContactAdapter(contact.sorted())  //optimiser au max l'affichage des cell contactRecycler: id recycleView
+            contactRecycler.layoutManager = LinearLayoutManager(this)
+        }
+    }
+    private fun getContacts() {
+        val resolver: ContentResolver = contentResolver;
+        val cursor = resolver.query(
+            ContactsContract.Contacts.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+
+        if (cursor!!.count > 0) {
+            while (cursor.moveToNext()) {
+                val name =
+                    cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                contact.add("  Nom : $name")
+            }
+        } else {
+            Toast.makeText(applicationContext, "No contacts available!", Toast.LENGTH_SHORT).show()
+        }
+        cursor.close()
     }
 }
