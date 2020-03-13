@@ -34,5 +34,15 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
+        imgSauvegarde.setOnClickListener() {
+            val intent = Intent(this, FormActivity::class.java)
+            startActivity(intent)
+        }
+        imgPermission.setOnClickListener() {
+            val intent = Intent(this, PermissionActivity::class.java)
+            startActivity(intent)
+        }
+
+        }
     }
-}
+

@@ -14,8 +14,12 @@
     <string name="txtNAME">rentrez votre nom</string>
     <string name="txtPRENOM">rentrez votre Prenom</string>
     <string name="txtDATE">rentrez votre date de naissance</string>
-    <string name="TXTname" >nom</string>
-    <string name="TXTPRENOM" > Prenom</string>
+    <string name="TXTname">nom</string>
+    <string name="TXTPRENOM"> Prenom</string>
     <string name="txtname">name</string>
     <string name="btnpopup">afficher</string>
+    <string name="PermissionTitle">afficher</string>
+    <string name="titre_permission" >acces aux information android </string>
+    <string name="camera_image" />
+    <string name="permission_location" >info personnes </string>
 </resources>
