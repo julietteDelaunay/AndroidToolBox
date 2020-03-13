@@ -9,6 +9,7 @@ import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_permission.*
 
 class PermissionActivity : AppCompatActivity()
@@ -21,7 +22,10 @@ class PermissionActivity : AppCompatActivity()
 
           showPictureDialog()
       }
+      contactRecycler.adapter = ContactAdapter(listOf( "Marion", "Vic", "Juliette"))  //optimiser au max l'affichage des cell contactRecycler: id recycleView
+      contactRecycler.layoutManager = LinearLayoutManager(this)
    }
+
 
     private fun pickImageFromGallery() {
         //Intent to pick image

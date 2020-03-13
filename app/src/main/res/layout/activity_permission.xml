@@ -46,10 +46,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactRecycler"
-        android:layout_width="277dp"
-        android:layout_height="413dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="409dp"
+        android:layout_height="540dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cameraIV" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
