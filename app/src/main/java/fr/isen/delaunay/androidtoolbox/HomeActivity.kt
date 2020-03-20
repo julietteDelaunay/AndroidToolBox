@@ -42,6 +42,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, PermissionActivity::class.java)
             startActivity(intent)
         }
+        imageBluetooth.setOnClickListener() {
+            val intent = Intent(this, BLEScanActivity::class.java)
+            startActivity(intent)
+        }
 
         }
     }
