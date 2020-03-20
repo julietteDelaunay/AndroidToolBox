@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BLEScanActivity"></activity>
+        <activity android:name=".WebServiceActivity"></activity>
+        <activity android:name=".BLEScanActivity" />
         <activity android:name=".PermissionActivity" />
         <activity android:name=".ContactActivity" />
         <activity android:name=".FormActivity" />
@@ -25,5 +26,10 @@
         </activity>
         <activity android:name=".HomeActivity" />
     </application>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- If your app targets Android 9 or lower, you can declare
+         ACCESS_COARSE_LOCATION instead. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
