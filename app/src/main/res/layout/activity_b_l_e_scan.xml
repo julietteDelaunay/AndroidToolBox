@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/deviceList1"
     tools:context=".BLEScanActivity">
 
     <TextView
@@ -16,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -33,7 +35,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/BLErecycler"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,23 +53,28 @@
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
-        android:id="@+id/txtBLE"
+        android:id="@+id/bleTextfailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/txtbleDivider"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/progressBar"
         app:layout_constraintTop_toBottomOf="@+id/textScanBLE" />
+
     <View
         android:id="@+id/dividerBle"
         android:layout_width="409dp"
         android:layout_height="1dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="7dp"
         android:background="?android:attr/listDivider"
-        android:backgroundTint="#FF0000"
+        android:backgroundTint="#070707"
+        app:layout_constraintBottom_toTopOf="@+id/bleTextfailed"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

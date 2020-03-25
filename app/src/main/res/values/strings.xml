@@ -25,4 +25,5 @@
     <string name="date">../../....</string>
     <string name="ScanBLE">Lancer le scan BLE</string>
     <string name="txtbleDivider">error</string>
+    <string name="_00" />
 </resources>
