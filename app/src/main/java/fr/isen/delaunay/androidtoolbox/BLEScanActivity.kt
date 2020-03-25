@@ -15,6 +15,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.content.Intent
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -24,7 +25,6 @@ import kotlin.collections.ArrayList
 
 
 class BLEScanActivity : AppCompatActivity() {
-
     private lateinit var handler: Handler
     private var mScanning: Boolean = false
     private lateinit var adapter: BLEAdapterActivity
@@ -39,19 +39,23 @@ class BLEScanActivity : AppCompatActivity() {
         get() = bluetoothAdapter?.isEnabled == true
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+        //
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b_l_e_scan)
-
+       // progressBar.progress = (progressBar.progress + 5) % 100
         bleTextfailed.visibility = View.GONE
 
         BLErecycler.adapter = BLEAdapterActivity(devices, ::onDeviceClicked)
         BLErecycler.layoutManager = LinearLayoutManager(this)
-        textScanBLE.setOnClickListener{
+        textScanBLE.setOnClickListener {
             when {
                 isBLEEnabled -> {
                     //init scan
                     initBLEScan()
                     initScan()
+
 
                 }
                 bluetoothAdapter != null -> {
@@ -69,7 +73,6 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
 
-
     private fun initScan() {
         progressBar.visibility = View.VISIBLE
         dividerBle.visibility = View.GONE
@@ -82,7 +85,8 @@ class BLEScanActivity : AppCompatActivity() {
         bluetoothAdapter?.bluetoothLeScanner?.apply {
 
             if (enable) {
-                Toast.makeText(applicationContext, "scann le device lancé ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "scann le device lancé ", Toast.LENGTH_SHORT)
+                    .show()
                 Log.w("BLEScanActivity", "Scanning for devices")
                 handler.postDelayed({
                     Log.w("BLEScanActivity", "part 1")
@@ -93,7 +97,9 @@ class BLEScanActivity : AppCompatActivity() {
                 startScan(leScanCallback)
                 adapter.clearResults()
                 adapter.notifyDataSetChanged()
-                progressBar.progress = (progressBar.progress + 5) % 100
+                //  progressBar.progress = (progressBar.progress + 5) % 100
+                BarProress()
+                //
                 Log.w("BLEScanActivity", "part 0")
                 togglePlayPauseAction()
             } else {
@@ -104,19 +110,19 @@ class BLEScanActivity : AppCompatActivity() {
         }
     }
 
-   private val leScanCallback = object : ScanCallback() {
-       override fun onScanResult(callbackType: Int, result: ScanResult) {
-           super.onScanResult(callbackType, result)
-           Log.w("BLEScanActivity", "onResult()")
-           Log.w("BLEScanActivity", "CaAMarche ${result?.device}")
-           runOnUiThread {
-               adapter.addDeviceToList(result)
-               adapter.notifyDataSetChanged()
-           }
-       }
-   }
+    private val leScanCallback = object : ScanCallback() {
+        override fun onScanResult(callbackType: Int, result: ScanResult) {
+            super.onScanResult(callbackType, result)
+            Log.w("BLEScanActivity", "onResult()")
+            Log.w("BLEScanActivity", "Results: ${result?.device}")
+            runOnUiThread {
+                adapter.addDeviceToList(result)
+                adapter.notifyDataSetChanged()
+            }
+        }
+    }
 
-       private fun initBLEScan() {
+    private fun initBLEScan() {
         adapter = BLEAdapterActivity(
             arrayListOf(),
             ::onDeviceClicked
@@ -127,10 +133,10 @@ class BLEScanActivity : AppCompatActivity() {
         handler = Handler()
 
         scanLeDevice(true)
-        textScanBLE.setOnClickListener{
-        Toast.makeText(this, "scann lancé", Toast.LENGTH_SHORT).show()
+        textScanBLE.setOnClickListener {
+            Toast.makeText(this, "scann lancé", Toast.LENGTH_SHORT).show()
             scanLeDevice(!mScanning)
-      }
+        }
 
     }
 
@@ -162,20 +168,53 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun togglePlayPauseAction(){
-        if(mScanning){
-            progressBar.visibility= View.VISIBLE
-            dividerBle.visibility= View.INVISIBLE
+    private fun togglePlayPauseAction() {
+        if (mScanning) {
+            progressBar.visibility = View.VISIBLE
+            dividerBle.visibility = View.INVISIBLE
             textScanBLE.text = "scan BLE en cours"
-            imgPlay.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.ic_media_pause))
-        }
-        else {
-            progressBar.visibility= View.INVISIBLE
-            dividerBle.visibility= View.VISIBLE
+            imgPlay.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    android.R.drawable.ic_media_pause
+                )
+            )
+        } else {
+            progressBar.visibility = View.INVISIBLE
+            dividerBle.visibility = View.VISIBLE
             textScanBLE.text = "lancer le scan BLE"
-            imgPlay.setImageDrawable(ContextCompat.getDrawable(this,android.R.drawable.ic_media_play))
+            imgPlay.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    android.R.drawable.ic_media_play
+                )
+            )
 
         }
+    }
+    private fun BarProress(){
+        //essai bar progression
+        // Variable to hold progress status
+        var progressStatus = 0;
+        // Initialize a new Handler instance
+        val handler: Handler = Handler()
+        // Start the lengthy operation in a background thread
+        Thread(Runnable {
+            while (progressStatus < 100) {
+                // Update the progress status
+                progressStatus += 1
+                // Try to sleep the thread for 50 milliseconds
+                try {
+                    Thread.sleep(50)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+                // Update the progress bar
+                handler.post(Runnable {
+                    progressBar.progress = progressStatus
+                })
+            }
+        }).start() // Start the operation
     }
 
 
