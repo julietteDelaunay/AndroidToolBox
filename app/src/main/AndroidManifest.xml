@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fr.isen.delaunay.androidtoolbox">
+    package="fr.isen.delaunay.androidtoolbox" >
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -9,29 +9,29 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
-
-
-    <!--
-    <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme" >
+        <activity android:name=".WebServiceAdapter" >
+        </activity>
+        <activity android:name=".BluetoothDetailAdapter" />
+        <activity android:name=".BluetoothDetailActivity" />
         <activity android:name=".BLEScanActivity" />
         <activity android:name=".BLEAdapterActivity" />
         <activity android:name=".PermissionActivity" />
         <activity android:name=".ContactAdapter" />
         <activity android:name=".FormActivity" />
         <activity android:name=".CycleLife" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".WebServiceActivity" />
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -9,19 +9,17 @@ import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
-import android.content.Intent
-import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_b_l_e_scan.*
-import kotlin.collections.ArrayList
 
 
 class BLEScanActivity : AppCompatActivity() {
@@ -114,7 +112,7 @@ class BLEScanActivity : AppCompatActivity() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
             Log.w("BLEScanActivity", "onResult()")
-            Log.w("BLEScanActivity", "Results: ${result?.device}")
+           // Log.w("BLEScanActivity", "Results: ${result?.device}")
             runOnUiThread {
                 adapter.addDeviceToList(result)
                 adapter.notifyDataSetChanged()
@@ -141,7 +139,7 @@ class BLEScanActivity : AppCompatActivity() {
     }
 
     private fun onDeviceClicked(device: BluetoothDevice) {
-        val intent = Intent(this, BLEAdapterActivity::class.java)
+        val intent = Intent(this, BluetoothDetailActivity::class.java)
         intent.putExtra("ble_device", device)
         startActivity(intent)
     }
@@ -194,11 +192,11 @@ class BLEScanActivity : AppCompatActivity() {
     }
     private fun BarProress(){
         //essai bar progression
-        // Variable to hold progress status
+
         var progressStatus = 0;
-        // Initialize a new Handler instance
+
         val handler: Handler = Handler()
-        // Start the lengthy operation in a background thread
+
         Thread(Runnable {
             while (progressStatus < 100) {
                 // Update the progress status
@@ -214,7 +212,7 @@ class BLEScanActivity : AppCompatActivity() {
                     progressBar.progress = progressStatus
                 })
             }
-        }).start() // Start the operation
+        }).start()
     }
 
 

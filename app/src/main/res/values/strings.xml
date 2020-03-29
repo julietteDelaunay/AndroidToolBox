@@ -26,4 +26,8 @@
     <string name="ScanBLE">Lancer le scan BLE</string>
     <string name="txtbleDivider">error</string>
     <string name="_00" />
+    <string name="BLEDeviceName" >error</string>
+    <string name="BLEDeviceStatus" >Status:</string>
+    <string name="image" />
+    <string name="WB_cell" />
 </resources>

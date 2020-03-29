@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/webServicesRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#070707"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/pictWS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/pictWS"
+        android:layout_width="91dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/nameWS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/WB_cell"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/pictWS"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addressWS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/WB_cell"
+        app:layout_constraintStart_toStartOf="@+id/nameWS"
+        app:layout_constraintTop_toBottomOf="@+id/nameWS" />
+
+    <TextView
+        android:id="@+id/mailWS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/WB_cell"
+        app:layout_constraintStart_toStartOf="@+id/addressWS"
+        app:layout_constraintTop_toBottomOf="@+id/addressWS" />
+</androidx.constraintlayout.widget.ConstraintLayout>

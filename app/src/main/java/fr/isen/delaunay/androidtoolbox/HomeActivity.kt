@@ -46,6 +46,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, BLEScanActivity::class.java)
             startActivity(intent)
         }
+        imgWebServices.setOnClickListener() {
+            val intent = Intent(this, WebServiceActivity::class.java)
+            startActivity(intent)
+        }
 
         }
     }
