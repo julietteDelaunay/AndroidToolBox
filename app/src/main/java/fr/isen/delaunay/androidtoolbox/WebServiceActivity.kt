@@ -19,6 +19,7 @@ class WebServiceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_web_service)
         Api()
     }
+
     private fun Api(): User {
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -31,7 +32,7 @@ class WebServiceActivity : AppCompatActivity() {
                 val gson = Gson()
                 user = gson.fromJson(response.toString(), User::class.java)
                 UserRV.layoutManager = LinearLayoutManager(this)
-                UserRV.adapter = WebServiceAdapter(user,this)
+                UserRV.adapter = WebServiceAdapter(user, this)
                 UserRV.visibility = View.VISIBLE
             },
             Response.ErrorListener {
@@ -41,5 +42,6 @@ class WebServiceActivity : AppCompatActivity() {
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
         return user
+
     }
 }

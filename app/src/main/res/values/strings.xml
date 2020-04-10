@@ -35,7 +35,7 @@
     <string name="uuid">UUID</string>
     <string name="arrow" />
     <string name="read">lecture</string>
-    <string name="write">ecriture</string>
+    <string name="write">écriture</string>
     <string name="notify">notification</string>
     <string name="txt_value">Rentrez une valeur SVP</string>
 </resources>

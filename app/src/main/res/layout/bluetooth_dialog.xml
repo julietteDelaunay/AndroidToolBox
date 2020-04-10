@@ -23,7 +23,6 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:labelFor="@+id/valueText" />
+        android:inputType="textPersonName" />
 
 </LinearLayout>

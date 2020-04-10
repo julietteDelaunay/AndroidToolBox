@@ -3,11 +3,9 @@ package fr.isen.delaunay.androidtoolbox
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_login.*
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,8 +45,8 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
         imgWebServices.setOnClickListener() {
-            val intent = Intent(this, WebServiceActivity::class.java)
-            startActivity(intent)
+           val intent = Intent(this, WebServiceActivity::class.java)
+         startActivity(intent)
         }
 
         }
