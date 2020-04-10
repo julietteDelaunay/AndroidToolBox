@@ -35,7 +35,7 @@ class WebServiceActivity : AppCompatActivity() {
                 UserRV.visibility = View.VISIBLE
             },
             Response.ErrorListener {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Uh oh, something has gone wrong.", Toast.LENGTH_SHORT).show()
             }
         )
         // Add the request to the RequestQueue.

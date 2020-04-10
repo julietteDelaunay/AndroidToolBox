@@ -1,10 +1,10 @@
 package fr.isen.delaunay.androidtoolbox
 
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_form.*
 import org.json.JSONObject
 import java.io.File
@@ -54,8 +54,10 @@ class FormActivity : AppCompatActivity() {
 
                 age = today.get(Calendar.YEAR) - cal.get(Calendar.YEAR)
 
-                if (today.get(Calendar.DAY_OF_YEAR) < cal.get(Calendar.DAY_OF_YEAR))
+                if (today.get(Calendar.DAY_OF_YEAR) < cal.get(Calendar.DAY_OF_YEAR)){
                     age--
+                }
+
             }
 
         fun showDatePicker(dateSetListener:DatePickerDialog.OnDateSetListener){
@@ -82,7 +84,7 @@ class FormActivity : AppCompatActivity() {
             alertDialogBuilder.setMessage(
                 "Nom: " + json.get("nom").toString() + "\n" + "Prénom: " + json.get(
                     "prenom"
-                ).toString() + "\n" + "Date de Naissance: " + json.get("dateNaissance").toString() + "\n"+ "Age : +$age +ans" + "\n"
+                ).toString() + "\n" + "Date de Naissance: " + json.get("dateNaissance").toString() + "\n"+ "Age : +$age ans" + "\n"
             )
             // Finally, make the alert dialog using builder
             val dialog: AlertDialog = alertDialogBuilder.create()

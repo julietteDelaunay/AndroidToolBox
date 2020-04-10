@@ -50,10 +50,10 @@ class BLEScanActivity : AppCompatActivity() {
         textScanBLE.setOnClickListener {
             when {
                 isBLEEnabled -> {
-                    //init scan
-                    initBLEScan()
-                    initScan()
-
+                        //init scan
+                        initBLEScan()
+                        initScan()
+                        togglePlayPauseAction()
 
                 }
                 bluetoothAdapter != null -> {
@@ -99,7 +99,7 @@ class BLEScanActivity : AppCompatActivity() {
                 BarProress()
                 //
                 Log.w("BLEScanActivity", "part 0")
-                togglePlayPauseAction()
+
             } else {
                 Log.w("BLEScanActivity", "part 2")
                 mScanning = false

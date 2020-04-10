@@ -23,11 +23,19 @@
     <string name="camera_image" />
     <string name="permission_location">Contacts de Juliette Delaunay </string>
     <string name="date">../../....</string>
-    <string name="ScanBLE">Lancer le scan BLE</string>
+    <string name="ScanBLE">lancer le scan BLE</string>
     <string name="txtbleDivider">error</string>
     <string name="_00" />
     <string name="BLEDeviceName" >error</string>
     <string name="BLEDeviceStatus" >Status:</string>
     <string name="image" />
     <string name="WB_cell" />
+    <string name="txtBLE"  >BLE</string>
+    <string name="serviceNAME">acces service</string>
+    <string name="uuid">UUID</string>
+    <string name="arrow" />
+    <string name="read">lecture</string>
+    <string name="write">ecriture</string>
+    <string name="notify">notification</string>
+    <string name="txt_value">Rentrez une valeur SVP</string>
 </resources>
